@@ -34,18 +34,16 @@
   <macro name="access"/>
   <macro name="issuance">
     <choose>
-      <if type="bill book graphic legal_case legislation motion_picture song thesis chapter paper-conference" match="any">
-        <group delimiter="; ">
-          <group delimiter=", " prefix="(" suffix=")">
-            <text variable="publisher" form="long"/>
-            <date variable="issued">
-              <date-part name="year"/>
-            </date>
-          </group>
+      <if type="bill book graphic legal_case legislation motion_picture report song thesis chapter paper-conference" match="any">
+        <group delimiter=", " prefix="(" suffix=")">
+          <text variable="publisher" form="long"/>
+          <date variable="issued">
+            <date-part name="year"/>
+          </date>
         </group>
       </if>
       <else>
-        <date variable="issued" prefix="(" suffix=")">
+        <date prefix="(" suffix=")" variable="issued">
           <date-part name="year"/>
         </date>
       </else>
