@@ -13,7 +13,7 @@
     <category citation-format="numeric"/>
     <category field="science"/>
     <category field="generic-base"/>
-    <updated>2019-11-12T15:53:11+00:00</updated>
+    <updated>2019-11-13T17:21:19+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="title">
@@ -35,7 +35,7 @@
   <macro name="issuance">
     <choose>
       <if type="bill book graphic legal_case legislation motion_picture song thesis chapter paper-conference" match="any">
-        <group delimiter="; " suffix=".">
+        <group delimiter="; ">
           <group delimiter=", " prefix="(" suffix=")">
             <text variable="publisher" form="long"/>
             <date variable="issued">
@@ -44,12 +44,6 @@
           </group>
         </group>
       </if>
-      <else-if type="report webpage post post-weblog" match="any">
-        <group delimiter=" ">
-          <text variable="URL"/>
-          <date date-parts="year" form="text" variable="issued" prefix="(" suffix=")"/>
-        </group>
-      </else-if>
       <else>
         <date variable="issued" prefix="(" suffix=")">
           <date-part name="year"/>
@@ -113,6 +107,7 @@
         <text macro="editor"/>
         <text macro="volume"/>
         <text variable="page"/>
+        <text macro="issuance"/>
       </group>
     </layout>
   </bibliography>
